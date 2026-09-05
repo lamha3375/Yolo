@@ -59,7 +59,7 @@ Bạn có thể tùy chỉnh các thông số trong file `config.py`:
 
 ---
 
-## 🚀 Hướng Dẫn Sử Dụng
+
 
 ### 1. Chạy Luồng Đa Luồng Tối Ưu (Threaded Pipeline)
 
