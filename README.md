@@ -92,12 +92,30 @@ pipeline.run(
 )
 
 ```
+### 3. Kiểm thử Đọc Video / Camera
+Mục đích: Kiểm tra việc mở và đọc từng khung hình (frame) từ file video hoặc luồng camera thông qua lớp VideoReader.
+
+Khởi tạo VideoReader("tests/Test5.mp4"). 
+
+Đọc từng frame trong vòng lặp while True và hiển thị trực tiếp lên màn hình bằng OpenCV (cv2.imshow).
+
+Giúp bạn nhanh chóng xác định xem đường dẫn file video có đúng không, OpenCV có đọc được định dạng video/codec đó không, hoặc camera có kết nối thành công hay chưa mà chưa cần chạy mô hình YOLOv8.
+
+### 4. Kiểm thử Pipeline Đa Luồng 
+Mục đích: Kiểm thử toàn bộ hệ thống ở chế độ đa luồng (multi-threaded) để đánh giá hiệu năng, tốc độ khung hình (FPS) và độ trượt/bỏ frame (drop frames).
+
+Cách hoạt động:
+
+Khởi tạo ThreadedPersonPipeline().
+
+Chạy hàm pipeline.run_threaded(...) trên file video thử nghiệm (tests/Test5.mp4).
+
+Chế độ này tách biệt luồng đọc video (ThreadedVideoReader) và luồng suy luận/nhận diện (ProcessingThread) thông qua hàng đợi (Queue), giúp hệ thống xử lý mượt mà hơn, tránh hiện tượng giật lag khi quay/truyền stream thời gian thực.
+
+Xuất video kết quả sau khi nhận diện ra đường dẫn tests/results/threaded_result.mp4.
 
 ### 3. Tích Hợp Dự Đoán Thuộc Tính (Attribute Predictor)
 
-Nếu bạn có mô hình dự đoán thuộc tính (ví dụ: dự đoán giới tính, áo quần), bạn chỉ cần kế thừa giao diện `AttributePredictorInterface` và truyền vào pipeline:
-
-```python
 # Kết quả trả về từ attribute_predictor cần có dạng:
 # {
 #     "attributes": {"gender": "Female", "clothing": "Shirt"},
