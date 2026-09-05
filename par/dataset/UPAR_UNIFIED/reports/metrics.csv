@@ -1,8 +1,0 @@
-Metric,Value
-Best_Epoch,7
-Best_Val_mA,0.7241
-Test_mA,0.6178
-Test_Accuracy,0.8339
-Test_Precision,0.4549
-Test_Recall,0.4358
-Test_F1,0.3629

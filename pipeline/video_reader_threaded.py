@@ -46,14 +46,10 @@ def _fit_frame_for_display(
 
 
 def _create_display_window():
-    """
-    Window có thể resize và luôn giữ tỷ lệ video.
-    """
     cv2.namedWindow(
         WINDOW_NAME,
         cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO,
     )
-
 
 class ThreadedPersonPipeline(PersonPipeline):
 
@@ -103,7 +99,6 @@ class ThreadedPersonPipeline(PersonPipeline):
                     try:
                         result_queue.put_nowait(result)
                     except:
-                        # Với realtime: giữ result mới nhất.
                         try:
                             result_queue.get_nowait()
                         except Empty:
@@ -191,7 +186,6 @@ class ThreadedPersonPipeline(PersonPipeline):
                         cv2.LINE_AA,
                     )
 
-                # Writer dùng đúng resolution của input.
                 if output_path is not None and writer is None:
                     output_dir = os.path.dirname(
                         output_path
@@ -226,8 +220,6 @@ class ThreadedPersonPipeline(PersonPipeline):
 
                 if writer is not None:
                     writer.write(output_frame)
-
-                # Preview là bản resize riêng.
                 if show:
                     preview_frame = _fit_frame_for_display(
                         output_frame

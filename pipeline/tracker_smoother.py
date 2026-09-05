@@ -14,10 +14,6 @@ from .config import (
 
 
 class PersonTracker:
-    """
-    ByteTrack Tracker wrapper sử dụng thư viện Supervision.
-    """
-
     def __init__(
         self,
         track_activation_threshold: float = TRACK_ACTIVATION_THRESHOLD,
@@ -25,7 +21,6 @@ class PersonTracker:
         minimum_matching_threshold: float = TRACK_MATCHING_THRESHOLD,
         frame_rate: int = TRACKER_FRAME_RATE
     ):
-        # Tương thích với các bản Supervision mới/cũ
         try:
             self.byte_tracker = sv.ByteTrack(
                 track_activation_threshold=track_activation_threshold,
@@ -86,14 +81,10 @@ class PersonTracker:
         return results
 
     def reset(self):
-        """Reset ByteTrack state khi chuyển video/stream mới."""
         self.byte_tracker.reset()
 
 
 class AttributeSmoother:
-    """
-    Temporal Smoothing (Majority Voting) gom và chốt thuộc tính theo Track ID.
-    """
 
     def __init__(
         self,
@@ -160,16 +151,12 @@ class AttributeSmoother:
             self.history.pop(track_id, None)
             self.missing_frames.pop(track_id, None)
 
-    # ĐÃ SỬA THỤT LỀ (INDENT) CHO PHƯƠNG THỨC RESET DƯỚI ĐÂY
     def reset(self):
-        """Reset toàn bộ bộ nhớ smoothing."""
         self.history.clear()
         self.missing_frames.clear()
 
 
 class TrackerSmootherManager:
-    """Class hợp nhất điều khiển cả Tracker và Smoother."""
-
     def __init__(
         self,
         window_size: int = SMOOTHING_WINDOW_SIZE,

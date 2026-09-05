@@ -49,8 +49,6 @@ class VideoReader:
     def read(self):
         if self.capture is None:
             raise RuntimeError(
-                "VideoReader chưa được mở. "
-                "Hãy gọi open() trước."
             )
 
         return self.capture.read()
