@@ -114,39 +114,7 @@ Chế độ này tách biệt luồng đọc video (ThreadedVideoReader) và lu�
 
 Xuất video kết quả sau khi nhận diện ra đường dẫn tests/results/threaded_result.mp4.
 
-### 3. Tích Hợp Dự Đoán Thuộc Tính (Attribute Predictor)
 
-# Kết quả trả về từ attribute_predictor cần có dạng:
-# {
-#     "attributes": {"gender": "Female", "clothing": "Shirt"},
-#     "confidence_scores": {"gender": 0.95, "clothing": 0.88}
-# }
-
-pipeline = PersonPipeline(attribute_predictor=my_attribute_model)
-
-```
-
----
-
-## ⌨️ Thao Tác Khi Hiển Thị Window
-
-* Nhấn phím **`q`** trên bàn phím hoặc bấm nút đóng cửa sổ (`X`) để dừng chương trình.
-"""
-
-with open("README.md", "w", encoding="utf-8") as f:
-f.write(readme_content)
-
-print("FILE_CREATED: README.md")
-
-```
-
-```text?code_stdout&code_event_index=1
-FILE_CREATED: README.md
-
-
-```
-
-Your Markdown file is ready
 
 
 ---
