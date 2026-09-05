@@ -28,14 +28,9 @@
 
 ---
 
-## ⚙️ Cài Đặt & Môi Trường
+## ⚙️ Cài Đặt Môi Trường
 
-### 1. Yêu cầu hệ thống
-
-* Python `>= 3.8`
-* GPU (NVIDIA CUDA) *khuyên dùng để tăng tốc độ YOLOv8*
-
-### 2. Cài đặt thư viện phụ thuộc
+### 1. Cài đặt thư viện phụ thuộc
 
 ```bash
 pip install opencv-python numpy ultralytics supervision
