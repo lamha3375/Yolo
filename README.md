@@ -1,11 +1,4 @@
-```python
-readme_content = """# 🚀 Hệ Thống Phát Hiện & Theo Dõi Người (YOLOv8 + ByteTrack)
 
-Hệ thống xử lý video/camera thời gian thực cho phép **Phát hiện (Detection)**, **Theo dõi (Tracking)**, **Cắt ảnh (Cropping)** và **Làm mượt thuộc tính (Attribute Smoothing)** đối với đối tượng con người (Person).
-
- project hỗ trợ cả hai chế độ chạy: **Đơn luồng (Single-threaded)** cho xử lý tuần tự chính xác và **Đa luồng (Multi-threaded / Pipeline)** tối ưu tốc độ FPS đối với Real-time Camera hoặc Video stream.
-
----
 
 ## 📌 Các Tính Năng Chính
 
@@ -256,9 +249,6 @@ pipeline.run(
 
 ### 3. Tích Hợp Dự Đoán Thuộc Tính (Attribute Predictor)
 
-Nếu bạn có mô hình dự đoán thuộc tính (ví dụ: dự đoán giới tính, áo quần), bạn chỉ cần kế thừa giao diện `AttributePredictorInterface` và truyền vào pipeline:
-
-```python
 # Kết quả trả về từ attribute_predictor cần có dạng:
 # {
 #     "attributes": {"gender": "Female", "clothing": "Shirt"},
